@@ -1,0 +1,293 @@
+<!doctype html>  
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	
+	<title>Sugar Events Calendar - A sweet, simple events calendar plugin</title>
+	
+	<meta name="description" content="Sugar Events Calendar is a simple plugin that provides everything you need for a simple event management system.">
+	<meta name="author" content="Pippin Williamson">
+	<meta name="copyright" content="Pippin Williamson">
+	<meta name="generator" content="Documenter v1.6 http://rxa.li/documenter">
+	<meta name="date" content="2012-06-23T00:00:00+02:00">
+	
+	<link rel="stylesheet" href="css/documenter_style.css" media="all">
+	
+	
+	<script src="js/jquery.1.6.4.js"></script>
+	
+	<script src="js/jquery.scrollTo-1.4.2-min.js"></script>
+	<script src="js/jquery.easing.js"></script>
+	
+	<link rel="stylesheet" href="css/shDocumenter.css" media="screen">
+	<script src="js/shCore.js"></script>
+	<script src="js/shBrushPhp.js"></script>
+	<script>SyntaxHighlighter.defaults['toolbar'] = false;SyntaxHighlighter.all();</script>
+
+	<script>document.createElement('section');var duration=500,easing='swing';</script>
+	<script src="js/script.js"></script>
+	
+	<style>
+		html{background-color:#FFFFFF;color:#383838;}
+		::-moz-selection{background:#444444;color:#DDDDDD;}
+		::selection{background:#444444;color:#DDDDDD;}
+		#documenter_sidebar #documenter_logo{background-image:url();}
+		a{color:#1F79E0;}
+		hr{border-top:1px solid #EBEBEB;border-bottom:1px solid #FFFFFF;}
+		#documenter_sidebar, #documenter_sidebar ol a{background-color:#DDDDDD;color:#222222;}
+		#documenter_sidebar ol a{-webkit-text-shadow:1px 1px 0px #EEEEEE;-moz-text-shadow:1px 1px 0px #EEEEEE;text-shadow:1px 1px 0px #EEEEEE;}
+		#documenter_sidebar ol{border-top:1px solid #AAAAAA;}
+		#documenter_sidebar ol a{border-top:1px solid #EEEEEE;border-bottom:1px solid #AAAAAA;color:#444444;}
+		#documenter_sidebar ol a:hover{background:#444444;color:#DDDDDD;border-top:1px solid #444444;}
+		#documenter_sidebar ol a.current{background:#444444;color:#DDDDDD;border-top:1px solid #444444;}
+		#documenter_copyright{display:block !important;visibility:visible !important;}
+	</style>
+	
+</head>
+<body>
+	<div id="documenter_sidebar">
+		<a href="#documenter_cover" id="documenter_logo"></a>
+		<ol id="documenter_nav">
+			<li><a class="current" href="#documenter_cover">Start</a></li>
+			<li><a href="#introduction">Introduction</a></li>
+			<li><a href="#installation">Installation</a></li>
+			<li><a href="#creating_events">Creating Events</a></li>
+			<li><a href="#showing_the_calendars">Showing the Calendars</a>
+				<ol>
+					<li><a href="#showing_the_calendars_using_the_short_code">Using the Short Code</a>
+					<li><a href="#showing_the_calendars_using_the_event_calendar_widget">Using the Event Calendar Widget</a>
+					<li><a href="#showing_the_calendars_using_the_template_tag">Using the Template Tag</a>
+				</ol>
+			</li>
+			<li><a href="#event_widgets">Event Widgets</a>
+				<ol>
+					<li><a href="#event_widgets_event_calendar">Event Calendar</a>
+					<li><a href="#event_widgets_event_categories">Event Categories</a>
+					<li><a href="#event_widgets_event_filter">Event Filter</a>
+					<li><a href="#event_widgets_events_list">Events List</a>
+				</ol>
+			</li>
+			<li><a href="#extra_configuration">Extra Configuration</a>
+				<ol>
+					<li><a href="#extra_configuration_adjusting_date_format_display">Adjusting Date Format Display</a>
+					<li><a href="#extra_configuration_adjusting_the_time_format_display">Adjusting the Time Format Display</a>
+					<li><a href="#extra_configuration_changing_words_on_the_front_end">Changing Words on the Front End</a>
+				</ol>
+			</li>
+
+		</ol>
+		<div id="documenter_copyright">Copyright Pippin Williamson 2012<br>
+		made with the <a href="http://rxa.li/documenter">Documenter v1.6</a> 
+		</div>
+	</div>
+	<div id="documenter_content">
+	<section id="documenter_cover"><h1>Sugar Events Calendar</h1><h2>A sweet, simple events calendar plugin</h2><hr><ul><li>Created: 06/23/2012</li><li>latest Update: 06/23/2012</li><li>By: Pippin Williamson</li><li><a href=""></a></li><li>Email: <a href="mailto:&#112;&#105;&#112;&#112;&#105;&#110;&#64;&#112;&#105;&#112;&#112;&#105;&#110;&#115;&#112;&#108;&#117;&#103;&#105;&#110;&#115;&#46;&#99;&#111;&#109;">&#112;&#105;&#112;&#112;&#105;&#110;&#64;&#112;&#105;&#112;&#112;&#105;&#110;&#115;&#112;&#108;&#117;&#103;&#105;&#110;&#115;&#46;&#99;&#111;&#109;</a></li></ul><p>Sugar Events Calendar is a simple plugin that provides everything you need for a simple event management system.</p></section><section id="introduction">
+	<h3>Introduction</h3><hr class="notop">
+<p>
+	Sugar Events Calendar is designed to be a simple to use event management plugin that provides everything you need for a typical events section on your website. It does not, however, try and perform every possible event related function / feature under the sun.</p>
+<p>
+	The plugin is designed to be minimal and not have a lot of feature bloat, like so many of the event plugins out there.</p>
+<p>
+	If you need advanced features such as event venues, mapping, paid events, etc, then you should probably look at other plugins.</p>
+</section>
+<section id="installation">
+	<h3>Installation</h3><hr class="notop">
+<p>
+	Installation is very simple and works exactly like every other WordPress plugins.</p>
+<p>
+	There are two ways to install the plugin:</p>
+<ol>
+	<li>
+		Upload via WordPress Plugin Installer</li>
+	<li>
+		Upload via FTP</li>
+</ol>
+<p>
+	Both methods will work perfectly fine, so choose the one you are most comfortable with.</p>
+<p>
+	<strong>1. Upload via WordPress Plugin Installer</strong></p>
+<ol>
+	<li>
+		Go to your WordPress Dashboard</li>
+	<li>
+		Click on Plugins</li>
+	<li>
+		Click Add New</li>
+	<li>
+		Click &quot;Upload&quot;</li>
+	<li>
+		Click &quot;Choose File&quot;</li>
+	<li>
+		Navigate to and select the .zip file downloaded from Code Canyon</li>
+	<li>
+		Click Install Now</li>
+	<li>
+		Once uploaded, click Activate</li>
+</ol>
+<p>
+	&nbsp;</p>
+<p>
+	<strong>2. Upload via FTP</strong></p>
+<p>
+	Using your preferred FTP application, do the following:</p>
+<ol>
+	<li>
+		Connect to your WordPress site</li>
+	<li>
+		Navigate to wp-content/plugins/</li>
+	<li>
+		Unzip the .zip file downloaded from Code Canyon</li>
+	<li>
+		Upload the &quot;sugar-calendar&quot; folder to the wp-content/plugins/ directory</li>
+	<li>
+		Log into your WordPress site from your browser</li>
+	<li>
+		Click on &quot;Plugins&quot;</li>
+	<li>
+		Find &quot;Sugar Events Calendar&quot; and click Activate</li>
+</ol>
+<p>
+	&nbsp;</p>
+<p>
+	Sugar Events Calendar is now ready to be used.</p>
+</section>
+<section id="creating_events">
+	<h3>Creating Events</h3><hr class="notop">
+<p>
+	Creating events is as simple as adding a WordPress post or page.&nbsp;</p>
+<p>
+	From your WordPress Dashboard, click on &quot;Events&quot; and &quot;Add New&quot;.</p>
+<p>
+	On this page, you will be presented with the normal WordPress editor. Fill in the event title, description, and featured image (if desired).</p>
+<p>
+	If you wish, you can categorize your event into appropriate sections. When showing event calendars, you have the option of limiting the calendar to only show events from specified categories.</p>
+<p>
+	Once you have added the event title, description, image, and categories, scroll down to the &quot;Event Configuration&quot; and select a date and time for the event.</p>
+<p>
+	The &quot;Event Date&quot; field should be set to the day, month, and year that the event occurs.</p>
+<p>
+	The &quot;Event Time&quot; fields should be set to the time of the day that the event starts and the time of day (or night) that the event ends.</p>
+<p>
+	As soon as you are finished adding in all information, click &quot;Publish&quot;, or &quot;Update&quot; if you are modifying an existing event.</p>
+</section>
+<section id="showing_the_calendars">
+	<h3>Showing the Calendars</h3><hr class="notop">
+<p>
+	Event calendars can be displayed in several different ways:</p>
+<ul>
+	<li>
+		Using the short code: [sc_events_calendar]</li>
+	<li>
+		Using the Event Calendar widget</li>
+	<li>
+		Using the template tag:&nbsp;sc_get_events_calendar()</li>
+</ul>
+<h4 id="showing_the_calendars_using_the_short_code">Using the Short Code</h4>
+<p>
+	The [sc_events_calendar] short code will show a complete ajax enabled calendar of your events wherever you place the short code. The best place is on a page, such as one named &quot;Events Calendar&quot;.</p>
+<p>
+	The short code accepts two optional parameters:</p>
+<ol>
+	<li>
+		<em>categoriy </em>- this will allow you to limit the calendar to only showing events from one or more categories</li>
+	<li>
+		<em>size</em> - this allows you to display a large or small calendar. A large calendar is default.</li>
+</ol>
+<p>
+	Using the short code like the example below will show a large calendar with all categories (non excluded):</p>
+<pre class="brush: php">
+[sc_events_calendar]</pre>
+<p>
+	The short code example below will show only the &quot;social&quot; &nbsp;categoriy and will display the small calendar:</p>
+<pre class="brush: php">
+[sc_events_calendar category=&quot;social&quot; size=&quot;small&quot;]</pre>
+<p>
+	The short code example below will show the &quot;social&quot; AND the &quot;dinners&quot; category in the large style:</p>
+<pre class="brush: php">
+[sc_events_calendar category=&quot;social, dinners&quot;]</pre>
+<h4 id="showing_the_calendars_using_the_event_calendar_widget">Using the Event Calendar Widget</h4>
+<p>
+	This widget will allow you to show event calendats that display all events, calendars that show only a specific category, and also both large and small calendars.</p>
+<p>
+	To use the widget, first go to Appearance &gt; Widgets, then drag &quot;Event Calendar&quot; to the widget area you wish to display a calendar. Once the widget is placed, choose the size and category to show. If you don&#39;t want the calendar limited to a specific category, then choose &quot;All&quot;.</p>
+<h4 id="showing_the_calendars_using_the_template_tag">Using the Template Tag</h4>
+<p>
+	This option is for advanced users who wish to modify their theme&#39;s template files in order to show the calendar(s).</p>
+<p>
+	To show a calendar, you can use this:</p>
+<pre class="brush: php">
+echo sc_get_events_calendar();</pre>
+<p>
+	The&nbsp;sc_get_events_calendar() function accepts to optional parameters:</p>
+<ul>
+	<li>
+		$size = &#39;large&#39;</li>
+	<li>
+		$category = null</li>
+</ul>
+<p>
+	You can use the $size parameter to display either a &quot;small&quot; or &quot;large&quot; calendar.</p>
+<p>
+	You can use the $category parameter to show a calendar with events only from specified categories. The $category parameter can be a comma separated string of IDs or slugs, or an array of IDs or slugs.</p>
+</section>
+<section id="event_widgets">
+	<h3>Event Widgets</h3><hr class="notop">
+<p>
+	The Sugar Event Calendars plugin comes with several different widgets that you can use for showing event-related information and tools.</p>
+<h4 id="event_widgets_event_calendar">Event Calendar</h4>
+<p>
+	This widget is used for showing a calendar inside of a widget area. It show both large and small calendars, as well as calendars with all events, or only specified categories. The usage of this widget is described in full in the &quot;Showing the Calendars&quot; section.</p>
+<h4 id="event_widgets_event_categories">Event Categories</h4>
+<p>
+	This widget can be used for displaying a list of event categories. Event category name will be linked to the archive for that category, so when clicked, only events filed in that category will be displayed.</p>
+<h4 id="event_widgets_event_filter">Event Filter</h4>
+<p>
+	This widget can be used to provide some filtering controls for the event archives. Becuase the filtering controls provided by this widget only work on the event post type archive and the event category archives, you should not use this widget to try and filter a calendar display.</p>
+<p>
+	The filtering controls this widget provides are as follows:</p>
+<ul>
+	<li>
+		<em>View All Events</em> - this will unset any filters you have applied</li>
+	<li>
+		<em>View Upcoming Events</em> - this will show only events that have not yet occurred</li>
+	<li>
+		<em>View Past Events</em> - this will show events that have already happened</li>
+	<li>
+		<em>Order: ASC - DESC</em> - this will change the order that events are displayed, nearest to farthest and farthest to nearest.</li>
+</ul>
+<h4 id="event_widgets_events_list">Events List</h4>
+<p>
+	This widget can be used for showing a plain-text list of events. With the widget options, you can choose whether to show only upcoming or past events (or all), the event category to show, and how many events you want to show.</p>
+<p>
+	When showing Upcoming Events, events will be shown with the nearest at the top (the ones closest to happening).</p>
+<p>
+	When showing Past Events, events will be shown with the most recently past at the top.</p>
+</section>
+<section id="extra_configuration">
+	<h3>Extra Configuration</h3><hr class="notop">
+<p>
+	Due to the simplicity of the Sugar Events Calendar plugin, there is no settings page needed. There are, however, a few settings that you may wish to adjust.</p>
+<h4 id="extra_configuration_adjusting_date_format_display">Adjusting Date Format Display</h4>
+<p>
+	If you wish to change the date format, please go to Settings &gt; General and set the format you would like to use. This is the global format used throughout your WordPress install.</p>
+<p>
+	The format used in the &quot;Event Details&quot; while created events, does not necessarily reflect the format used on the front end of your site.</p>
+<h4 id="extra_configuration_adjusting_the_time_format_display">Adjusting the Time Format Display</h4>
+<p>
+	&nbsp;</p>
+<p>
+	If you wish to change the time format, please go to Settings &gt; General and set the format you would like to use. This is the global format used throughout your WordPress install.</p>
+<p>
+	The format used in the &quot;Event Details&quot; while created events, does not necessarily reflect the format used on the front end of your site.</p>
+<h4 id="extra_configuration_changing_words_on_the_front_end">Changing Words on the Front End</h4>
+<p>
+	If there are words, such as &quot;Date&quot; or &quot;Time&quot; that you would like to adjust, please see my tutorial on the <a href="http://pippinsplugins.com/introduction-gettext-filter-wordpress/">gettext filter in WordPress</a>.</p>
+</section>
+
+	</div>
+</body>
+</html>
